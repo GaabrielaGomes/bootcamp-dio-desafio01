@@ -28,8 +28,11 @@ Digite a operação desejada: '''))
 
     if opcao == 1:
         saldo_deposito = float(input('\nDigite o valor do depósito: '))
-        saldo_atual += saldo_deposito
-        extrato_depositos += f'R$ {saldo_deposito:.2f}\n'
+        if saldo_deposito > 0:
+            saldo_atual += saldo_deposito
+            extrato_depositos += f'R$ {saldo_deposito:.2f}\n'
+        else:
+            print('\n Não é possível depositar valor negativo')
     elif opcao == 2:
         if numero_saques < 3:
             valor_saque = float(input('\nDigite o valor do saque: '))
